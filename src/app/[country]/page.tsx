@@ -196,7 +196,7 @@ function CountryHero({ country, bundles }: { country: Country; bundles: Bundle[]
           )}
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: isBundle ? 14 : 16 }}>
-            {isBundle ? [
+            {(isBundle ? [
               { n: firstBundle ? firstBundle.data_amount : "100 GB", l: `Top bundle · ${firstBundle?.price || ""} / wk` },
               { n: "5G", l: "Where carrier serves it" },
               { n: bundles.length > 0 ? bundles.map(b => b.period).join(" / ") : "30 days", l: "Validity options" },
@@ -211,7 +211,7 @@ function CountryHero({ country, bundles }: { country: Country; bundles: Bundle[]
               { n: firstBundle?.period || "30 days", l: "Validity · always" },
               { n: "0", l: "Throttle, ever" },
               { n: "1 Gbps", l: "Top speed · 5G" },
-            ].map((s, i) => (
+            ]).map((s, i) => (
               <div key={i} style={{ background: "rgba(14,14,20,0.06)", border: "1.5px solid rgba(14,14,20,0.2)", borderRadius: 18, padding: "16px 18px" }}>
                 <div style={{ fontFamily: F.display, fontWeight: 800, fontSize: 36, letterSpacing: "-0.03em", lineHeight: 1, color: i === 0 ? accentInf : cardFg }}>{s.n}</div>
                 <div style={{ fontFamily: F.mono, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", opacity: 0.75, marginTop: 6 }}>{s.l}</div>

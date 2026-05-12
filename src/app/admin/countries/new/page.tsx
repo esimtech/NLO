@@ -185,7 +185,7 @@ export default function NewCountryPage() {
 
           <div style={{ display: "flex", gap: 12, justifyContent: "flex-end" }}>
             <Link href="/admin">
-              <Btn color="cream" size="md">Cancel</Btn>
+              <Btn color="outline" size="md">Cancel</Btn>
             </Link>
             <button type="submit" disabled={saving} style={{
               background: C.blue, color: C.cream, border: `2px solid ${C.ink}`, borderRadius: 12,

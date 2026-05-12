@@ -17,7 +17,7 @@ const COLOR_MAP: Record<string, string> = {
 type BundleRow = Bundle & { _editing?: boolean; _new?: boolean };
 
 const emptyBundle = (): Omit<BundleRow, "id" | "country_id"> => ({
-  name: "", data_amount: "", price: 0, period: 30, per_day: "",
+  name: "", data_amount: "", price: "", period: "", per_day: "",
   value_label: "", features: "[]", checkout_url: "", is_featured: 0,
   badge: "", color: "cream", display_order: 0, active: 1,
   _editing: true, _new: true,
