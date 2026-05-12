@@ -1,0 +1,229 @@
+/* ============================================================
+   NoLimitsOnline — Design tokens
+   Drop this file into any HTML and use the CSS vars below.
+   <link rel="stylesheet" href="colors_and_type.css" />
+   ============================================================ */
+
+/* Webfonts (Google) — substitute with local files in fonts/ if shipping offline */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;700&family=Geist:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ---------- Palette ---------- */
+  /* Foundations */
+  --nlo-cream:    #FAF6EE;   /* oklch(96% 0.01 80)  — default page bg */
+  --nlo-cream-2:  #F2EBDC;   /* slightly deeper cream for cards on cream */
+  --nlo-ink:      #0E0E14;   /* oklch(15% 0.02 270) — text + outlines */
+  --nlo-ink-soft: #2A2A35;   /* secondary text / muted */
+
+  /* Brights — use bold, never timid */
+  --nlo-blue:     #2E5BFF;   /* oklch(60% 0.22 263) — PRIMARY · links · CTAs */
+  --nlo-blue-deep:#1E3FBF;   /* pressed / hover-dark */
+  --nlo-yellow:   #FFD23F;   /* oklch(88% 0.17 90)  — highlights, stickers */
+  --nlo-coral:    #FF6B6B;   /* oklch(70% 0.18 25)  — energy, promos */
+  --nlo-mint:     #7BE0B5;   /* oklch(86% 0.13 165) — success, active */
+  --nlo-lilac:    #C9B6FF;   /* tertiary accent — sparing use */
+
+  /* Semantic */
+  --nlo-bg:       var(--nlo-cream);
+  --nlo-bg-alt:   var(--nlo-cream-2);
+  --nlo-fg:       var(--nlo-ink);
+  --nlo-fg-muted: var(--nlo-ink-soft);
+  --nlo-primary:  var(--nlo-blue);
+  --nlo-accent:   var(--nlo-yellow);
+  --nlo-success:  var(--nlo-mint);
+  --nlo-danger:   var(--nlo-coral);
+  --nlo-link:     var(--nlo-blue);
+
+  /* ---------- Typography ---------- */
+  --nlo-font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --nlo-font-body:    'Geist', 'Bricolage Grotesque', system-ui, sans-serif;
+  --nlo-font-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  /* Scale (designed at 1920 grid; scale down for product UI) */
+  --nlo-fs-display:   clamp(72px, 14vw, 280px);
+  --nlo-fs-h1:        clamp(48px, 7vw, 120px);
+  --nlo-fs-h2:        clamp(36px, 4.5vw, 80px);
+  --nlo-fs-h3:        clamp(28px, 2.8vw, 48px);
+  --nlo-fs-body-lg:   clamp(20px, 1.6vw, 28px);
+  --nlo-fs-body:      18px;
+  --nlo-fs-small:     16px;
+  --nlo-fs-mono:      14px;
+
+  /* Tracking — display tightens with size */
+  --nlo-track-display:-0.05em;
+  --nlo-track-h1:     -0.035em;
+  --nlo-track-h2:     -0.03em;
+  --nlo-track-h3:     -0.02em;
+  --nlo-track-body:    0em;
+  --nlo-track-mono:    0.06em;
+
+  /* Line height */
+  --nlo-lh-display: 0.82;
+  --nlo-lh-h1:      0.92;
+  --nlo-lh-h2:      0.95;
+  --nlo-lh-body:    1.45;
+  --nlo-lh-mono:    1.55;
+
+  /* ---------- Surfaces ---------- */
+  --nlo-radius-sm:  10px;
+  --nlo-radius-md:  18px;
+  --nlo-radius-lg:  24px;
+  --nlo-radius-xl:  32px;
+  --nlo-radius-pill: 999px;
+
+  --nlo-border:     2px solid var(--nlo-ink);
+  --nlo-border-thick: 3px solid var(--nlo-ink);
+
+  /* Signature hard-offset shadow — no blur, always ink-colored */
+  --nlo-shadow-sm: 3px 3px 0 var(--nlo-ink);
+  --nlo-shadow-md: 6px 6px 0 var(--nlo-ink);
+  --nlo-shadow-lg: 8px 8px 0 var(--nlo-ink);
+
+  /* Spacing scale (4px base) */
+  --nlo-s-1: 4px;
+  --nlo-s-2: 8px;
+  --nlo-s-3: 12px;
+  --nlo-s-4: 16px;
+  --nlo-s-5: 24px;
+  --nlo-s-6: 32px;
+  --nlo-s-7: 48px;
+  --nlo-s-8: 64px;
+  --nlo-s-9: 96px;
+}
+
+/* ---------- Base ---------- */
+html, body {
+  background: var(--nlo-bg);
+  color: var(--nlo-fg);
+  font-family: var(--nlo-font-body);
+  font-size: var(--nlo-fs-body);
+  line-height: var(--nlo-lh-body);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, .nlo-h1 {
+  font-family: var(--nlo-font-display);
+  font-weight: 800;
+  font-size: var(--nlo-fs-h1);
+  line-height: var(--nlo-lh-h1);
+  letter-spacing: var(--nlo-track-h1);
+  margin: 0;
+}
+h2, .nlo-h2 {
+  font-family: var(--nlo-font-display);
+  font-weight: 700;
+  font-size: var(--nlo-fs-h2);
+  line-height: var(--nlo-lh-h2);
+  letter-spacing: var(--nlo-track-h2);
+  margin: 0;
+}
+h3, .nlo-h3 {
+  font-family: var(--nlo-font-display);
+  font-weight: 700;
+  font-size: var(--nlo-fs-h3);
+  line-height: 1.05;
+  letter-spacing: var(--nlo-track-h3);
+  margin: 0;
+}
+p, .nlo-body { font-size: var(--nlo-fs-body); line-height: var(--nlo-lh-body); }
+
+.nlo-display {
+  font-family: var(--nlo-font-display);
+  font-weight: 800;
+  font-size: var(--nlo-fs-display);
+  line-height: var(--nlo-lh-display);
+  letter-spacing: var(--nlo-track-display);
+}
+
+/* Italic accent — Bricolage italic is friendly, not formal */
+.nlo-italic-accent {
+  font-style: italic;
+  font-weight: 500;
+  font-family: var(--nlo-font-display);
+}
+
+/* Mono label — uppercase, tracked, often with `// ` prefix */
+.nlo-eyebrow, .nlo-mono-label {
+  font-family: var(--nlo-font-mono);
+  font-size: var(--nlo-fs-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Highlight — yellow background block on inline text */
+.nlo-highlight {
+  background: var(--nlo-yellow);
+  padding: 0 0.25em;
+  border-radius: 8px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* ---------- Wordmark helpers ---------- */
+/* Wrap the brand name to enforce the ∞ swap: NoLimits∞nline */
+.nlo-wordmark {
+  font-family: var(--nlo-font-display);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.85;
+  color: var(--nlo-ink);
+  white-space: nowrap;
+}
+.nlo-wordmark .infinity { color: var(--nlo-blue); }
+
+/* ---------- Chip / sticker ---------- */
+.nlo-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: var(--nlo-radius-pill);
+  background: var(--nlo-ink);
+  color: var(--nlo-cream);
+  font-family: var(--nlo-font-display);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  border: var(--nlo-border);
+  box-shadow: var(--nlo-shadow-sm);
+}
+.nlo-chip.blue   { background: var(--nlo-blue);   color: #fff; }
+.nlo-chip.yellow { background: var(--nlo-yellow); color: var(--nlo-ink); }
+.nlo-chip.coral  { background: var(--nlo-coral);  color: var(--nlo-ink); }
+.nlo-chip.mint   { background: var(--nlo-mint);   color: var(--nlo-ink); }
+.nlo-chip.cream  { background: var(--nlo-cream);  color: var(--nlo-ink); }
+
+/* ---------- Button ---------- */
+.nlo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 28px;
+  border-radius: var(--nlo-radius-pill);
+  background: var(--nlo-ink);
+  color: var(--nlo-cream);
+  font-family: var(--nlo-font-display);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.01em;
+  border: var(--nlo-border);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.nlo-btn:hover  { transform: translate(-2px, -2px); box-shadow: var(--nlo-shadow-md); }
+.nlo-btn:active { transform: translate(1px, 1px);   box-shadow: none; }
+.nlo-btn.blue   { background: var(--nlo-blue);   color: #fff; }
+.nlo-btn.yellow { background: var(--nlo-yellow); color: var(--nlo-ink); }
+.nlo-btn.outline{ background: transparent;       color: var(--nlo-ink); }
+
+/* ---------- Card ---------- */
+.nlo-card {
+  background: #fff;
+  border: var(--nlo-border-thick);
+  border-radius: var(--nlo-radius-xl);
+  padding: var(--nlo-s-6);
+  box-shadow: var(--nlo-shadow-lg);
+}
