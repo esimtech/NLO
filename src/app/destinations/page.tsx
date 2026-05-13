@@ -45,9 +45,11 @@ export default function DestinationsPage() {
 
       {/* Header */}
       <section
+        className="section-pad"
         style={{
           background: C.cream,
-          padding: "64px 56px 32px",
+          paddingTop: "64px",
+          paddingBottom: "32px",
           borderBottom: border.base,
           position: "relative",
           overflow: "hidden",
@@ -114,9 +116,11 @@ export default function DestinationsPage() {
 
       {/* Grid + Filters */}
       <section
+        className="section-pad"
         style={{
           background: C.cream2,
-          padding: "64px 56px",
+          paddingTop: "64px",
+          paddingBottom: "64px",
           borderBottom: border.base,
         }}
       >
@@ -160,11 +164,8 @@ export default function DestinationsPage() {
 
           {/* Grid */}
           <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
-              gap: 20,
-            }}
+            className="grid-4-col"
+            style={{}}
           >
             {filtered.map((c) => (
               <CountryCard key={c.id} c={c} />
@@ -220,20 +221,19 @@ export default function DestinationsPage() {
 
       {/* Missing country */}
       <section
+        className="section-pad"
         style={{
           background: C.cream,
-          padding: "100px 56px",
+          paddingTop: "100px",
+          paddingBottom: "100px",
           borderBottom: border.base,
         }}
       >
         <div
+          className="grid-2-col"
           style={{
             maxWidth: 1280,
             margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "1.2fr 1fr",
-            gap: 56,
-            alignItems: "center",
           }}
         >
           <div>

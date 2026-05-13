@@ -19,10 +19,12 @@ export default function CTA({ countries }: CTAProps) {
 
   return (
     <section
+      className="section-pad"
       style={{
         background: C.blue,
         color: C.cream,
-        padding: "120px 56px",
+        paddingTop: "120px",
+        paddingBottom: "120px",
         borderTop: border.base,
         position: "relative",
         overflow: "hidden",

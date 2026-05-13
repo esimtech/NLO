@@ -2,6 +2,8 @@ import Link from "next/link";
 import { C, F, border } from "./tokens";
 import { Wordmark, Mono, FlagDot } from "./ui";
 
+// Footer uses CSS classes for responsive grid (server component - no hook)
+
 const cols = [
   {
     h: "Destinations",
@@ -42,19 +44,19 @@ const cols = [
 export default function Footer() {
   return (
     <footer
+      className="section-pad"
       style={{
         background: C.ink,
         color: C.cream,
-        padding: "80px 56px 36px",
+        paddingTop: 80,
+        paddingBottom: 36,
         borderTop: border.base,
       }}
     >
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div
+          className="footer-grid"
           style={{
-            display: "grid",
-            gridTemplateColumns: "1.5fr 1fr 1fr 1fr 1fr",
-            gap: 40,
             marginBottom: 56,
           }}
         >

@@ -36,7 +36,7 @@ export default function SearchBox({ placeholder = "Where are you headed?", desti
     : destinations.slice(0, 6);
 
   return (
-    <div ref={ref} style={{ position: "relative", width: "100%", maxWidth: 640 }}>
+    <div ref={ref} style={{ position: "relative", width: "100%", maxWidth: 640, boxSizing: "border-box" }}>
       <div
         style={{
           background: "#fff",

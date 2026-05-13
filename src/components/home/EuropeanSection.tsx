@@ -1,5 +1,8 @@
+"use client";
+
 import { Sticker, Mono, FlagDot } from "@/components/ui";
 import { C, F, shadow, border } from "@/components/tokens";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const rules = [
   { k: "01", t: "If we say unlimited, no throttle. Period." },
@@ -10,13 +13,15 @@ const rules = [
 ];
 
 export default function EuropeanSection() {
+  const isMobile = useIsMobile();
+
   return (
-    <section style={{ background: C.cream, padding: "120px 56px", borderTop: border.base, position: "relative", overflow: "hidden" }}>
+    <section style={{ background: C.cream, padding: isMobile ? "60px 20px" : "120px 56px", borderTop: border.base, position: "relative", overflow: "hidden" }}>
       <div aria-hidden style={{ position: "absolute", left: -120, bottom: -180, fontFamily: F.display, fontWeight: 800, fontSize: 720, lineHeight: 1, color: C.blue, opacity: 0.05, userSelect: "none", pointerEvents: "none" }}>
         ∞
       </div>
 
-      <div style={{ position: "relative", maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "1.15fr 1fr", gap: 64, alignItems: "center" }}>
+      <div className="grid-2-col" style={{ position: "relative", maxWidth: 1280, margin: "0 auto" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
           <div style={{ display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
             <Sticker color="blue" rotate={-2} size="md">PROUD EUROPEAN COMPANY</Sticker>

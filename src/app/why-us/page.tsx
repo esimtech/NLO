@@ -17,9 +17,11 @@ export default function WhyUsPage() {
 
       {/* Hero */}
       <section
+        className="section-pad"
         style={{
           background: C.cream,
-          padding: "80px 56px",
+          paddingTop: "80px",
+          paddingBottom: "80px",
           borderBottom: border.base,
           position: "relative",
           overflow: "hidden",
@@ -85,15 +87,12 @@ export default function WhyUsPage() {
       </section>
 
       {/* Story 1 — The Problem */}
-      <section style={{ background: C.cream2, padding: "120px 56px", borderBottom: border.base }}>
+      <section className="section-pad" style={{ background: C.cream2, paddingTop: "120px", paddingBottom: "120px", borderBottom: border.base }}>
         <div
+          className="grid-2-col"
           style={{
             maxWidth: 1280,
             margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 56,
-            alignItems: "center",
           }}
         >
           <div>
@@ -185,9 +184,11 @@ export default function WhyUsPage() {
 
       {/* Story 2 — The Fix */}
       <section
+        className="section-pad"
         style={{
           background: C.cream,
-          padding: "120px 56px",
+          paddingTop: "120px",
+          paddingBottom: "120px",
           borderBottom: border.base,
           position: "relative",
           overflow: "hidden",
@@ -212,14 +213,11 @@ export default function WhyUsPage() {
           ∞
         </div>
         <div
+          className="grid-2-col"
           style={{
             position: "relative",
             maxWidth: 1280,
             margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 56,
-            alignItems: "center",
           }}
         >
           <div
