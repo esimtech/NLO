@@ -14,9 +14,9 @@ export const C = {
 } as const;
 
 export const F = {
-  display: "'Bricolage Grotesque', system-ui, sans-serif",
-  body: "'Geist', 'Bricolage Grotesque', system-ui, sans-serif",
-  mono: "'JetBrains Mono', ui-monospace, monospace",
+  display: "var(--font-bricolage), system-ui, sans-serif",
+  body: "var(--font-geist), var(--font-bricolage), system-ui, sans-serif",
+  mono: "var(--font-jetbrains), ui-monospace, monospace",
 } as const;
 
 export const shadow = {
