@@ -60,7 +60,7 @@ export default function AdminDashboard() {
         </div>
       </header>
 
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "48px 40px" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "48px clamp(16px, 4vw, 40px)" }}>
         {/* Page header */}
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 24, marginBottom: 36 }}>
           <div>
@@ -75,7 +75,7 @@ export default function AdminDashboard() {
         </div>
 
         {/* Stats strip */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20, marginBottom: 36 }}>
+        <div className="grid-4-col" style={{ marginBottom: 36 }}>
           {[
             { n: countries.length.toString(), l: "Total countries" },
             { n: countries.filter((c) => c.active).length.toString(), l: "Active" },
@@ -90,9 +90,9 @@ export default function AdminDashboard() {
         </div>
 
         {/* Countries table */}
-        <div style={{ background: "#fff", border: border.base, borderRadius: 24, boxShadow: shadow.sm, overflow: "hidden" }}>
+        <div style={{ background: "#fff", border: border.base, borderRadius: 24, boxShadow: shadow.sm, overflow: "auto" }}>
           {/* Table header */}
-          <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr 100px", gap: 16, padding: "14px 24px", background: C.cream2, borderBottom: border.base }}>
+          <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr 100px", gap: 16, padding: "14px 24px", background: C.cream2, borderBottom: border.base, minWidth: 640 }}>
             {["Country", "Region", "Type", "Carrier", "Status", "Actions"].map((h) => (
               <div key={h} style={{ fontFamily: F.mono, fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", opacity: 0.7 }}>{h}</div>
             ))}
@@ -105,7 +105,7 @@ export default function AdminDashboard() {
           )}
 
           {countries.map((c, i) => (
-            <div key={c.id} style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr 100px", gap: 16, padding: "18px 24px", alignItems: "center", borderTop: i === 0 ? "none" : `1px solid ${C.cream2}` }}>
+            <div key={c.id} style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr 100px", gap: 16, padding: "18px 24px", alignItems: "center", borderTop: i === 0 ? "none" : `1px solid ${C.cream2}`, minWidth: 640 }}>
               {/* Country name + flag */}
               <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
                 <span style={{ fontSize: 28 }}>{c.flag}</span>

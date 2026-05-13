@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import { Sticker, Btn, Mono } from "@/components/ui";
 import { C, F, shadow, border, radius } from "@/components/tokens";
+import { useIsMobile } from "@/hooks/useIsMobile";
 import type { Country, Bundle } from "@/lib/db";
 
 interface CountryData extends Country {
@@ -103,13 +104,14 @@ function CountryHero({ country, bundles }: { country: Country; bundles: Bundle[]
   const accentInf = isBundle ? C.blue : cardFg === C.cream ? C.yellow : C.blue;
   const firstBundle = bundles[0];
   const priceFrom = firstBundle ? firstBundle.price : "";
+  const isMobile = useIsMobile();
 
   return (
-    <section style={{ background: C.cream, padding: "56px 56px 80px", borderBottom: border.base, position: "relative", overflow: "hidden" }}>
+    <section className="section-pad" style={{ background: C.cream, paddingTop: "56px", paddingBottom: "80px", borderBottom: border.base, position: "relative", overflow: "hidden" }}>
       <div aria-hidden style={{ position: "absolute", right: -120, top: -80, fontFamily: F.display, fontWeight: 800, fontSize: 880, lineHeight: 1, color: isBundle ? C.coral : hasNumber ? C.mint : C.blue, opacity: isBundle ? 0.08 : 0.12, pointerEvents: "none", userSelect: "none" }}>∞</div>
 
       {/* Breadcrumb */}
-      <div style={{ position: "relative", display: "flex", gap: 10, alignItems: "center", marginBottom: 32 }}>
+      <div style={{ position: "relative", display: "flex", gap: 10, alignItems: "center", marginBottom: 32, flexWrap: "wrap" }}>
         {[
           { label: "// HOME", href: "/" },
           { label: "DESTINATIONS", href: "/destinations" },
@@ -127,7 +129,7 @@ function CountryHero({ country, bundles }: { country: Country; bundles: Bundle[]
         }, [])}
       </div>
 
-      <div style={{ position: "relative", display: "grid", gridTemplateColumns: "1.3fr 1fr", gap: 56, alignItems: "center" }}>
+      <div className="grid-2-col" style={{ position: "relative" }}>
         {/* Left */}
         <div style={{ display: "flex", flexDirection: "column", gap: 26 }}>
           <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
@@ -228,15 +230,15 @@ function CountryHero({ country, bundles }: { country: Country; bundles: Bundle[]
         </div>
       </div>
 
-      {/* Floating sticker */}
-      {!isBundle && (
+      {/* Floating sticker - hide on mobile */}
+      {!isMobile && !isBundle && (
         <div style={{ position: "absolute", right: 80, top: 80 }}>
           <Sticker color="yellow" rotate={8} size="md">
             {hasNumber ? "CALL · TEXT · 2FA — ALL LOCAL" : "NO FAKE UNLIMITED"}
           </Sticker>
         </div>
       )}
-      {isBundle && (
+      {!isMobile && isBundle && (
         <div style={{ position: "absolute", right: 80, top: 80 }}>
           <Sticker color="ink" rotate={8} size="md">NO FAKE UNLIMITED</Sticker>
         </div>
@@ -250,8 +252,8 @@ function CountryHero({ country, bundles }: { country: Country; bundles: Bundle[]
 function WhyNoLocal({ country }: { country: Country }) {
   if (!country.why_no_local) return null;
   return (
-    <section style={{ background: C.cream2, padding: "100px 56px", borderBottom: border.base }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "1.1fr 1fr", gap: 56, alignItems: "center" }}>
+    <section className="section-pad" style={{ background: C.cream2, paddingTop: "100px", paddingBottom: "100px", borderBottom: border.base }}>
+      <div className="grid-2-col" style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
           <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
             <Sticker color="coral" rotate={-3}>HONEST ABOUT IT</Sticker>
@@ -297,7 +299,7 @@ function WhyNoLocal({ country }: { country: Country }) {
 
 function BundleGrid({ bundles, country }: { bundles: Bundle[]; country: Country }) {
   return (
-    <section id="plans" style={{ background: C.cream, padding: "120px 56px", borderBottom: border.base }}>
+    <section id="plans" className="section-pad" style={{ background: C.cream, paddingTop: "120px", paddingBottom: "120px", borderBottom: border.base }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 40, flexWrap: "wrap", marginBottom: 56 }}>
           <div>
@@ -331,7 +333,7 @@ function ThePlan({ bundles, country, singlePlan }: { bundles: Bundle[]; country:
   const features: string[] = JSON.parse(b.features || "[]");
 
   return (
-    <section id="plans" style={{ background: C.cream, padding: "120px 56px", borderBottom: border.base }}>
+    <section id="plans" className="section-pad" style={{ background: C.cream, paddingTop: "120px", paddingBottom: "120px", borderBottom: border.base }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 40, flexWrap: "wrap", marginBottom: 48 }}>
           <div>
@@ -344,7 +346,7 @@ function ThePlan({ bundles, country, singlePlan }: { bundles: Bundle[]; country:
           <Sticker color="yellow" rotate={4} size="lg">DATA-ONLY · NO VOICE</Sticker>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 32, alignItems: "stretch" }}>
+        <div className="grid-2-col" style={{ alignItems: "stretch" }}>
           {/* Plan card */}
           <div style={{ background: C.blue, color: C.cream, border: border.thick, borderRadius: 32, boxShadow: shadow.lg, padding: 40, position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
             <div aria-hidden style={{ position: "absolute", right: -60, top: -40, fontFamily: F.display, fontWeight: 800, fontSize: 380, lineHeight: 1, color: C.yellow, opacity: 0.18, userSelect: "none", pointerEvents: "none" }}>∞</div>
@@ -406,9 +408,8 @@ function ThePlan({ bundles, country, singlePlan }: { bundles: Bundle[]; country:
 // ── Plan cards (for multi-plan layouts) ──────────────────────
 
 function PlanCards({ bundles }: { bundles: Bundle[] }) {
-  const cols = bundles.length <= 3 ? `repeat(${bundles.length}, 1fr)` : "repeat(3, 1fr)";
   return (
-    <div style={{ display: "grid", gridTemplateColumns: cols, gap: 28 }}>
+    <div className="grid-3-col">
       {bundles.map((b) => {
         const bg = { cream: "#fff", yellow: C.yellow, blue: C.blue }[b.color] || "#fff";
         const fg = b.color === "blue" ? C.cream : C.ink;
@@ -460,8 +461,8 @@ function PlanCards({ bundles }: { bundles: Bundle[] }) {
 
 function CarrierStory({ country }: { country: Country }) {
   return (
-    <section style={{ background: C.cream2, padding: "100px 56px", borderBottom: border.base }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1.15fr", gap: 56, alignItems: "center" }}>
+    <section className="section-pad" style={{ background: C.cream2, paddingTop: "100px", paddingBottom: "100px", borderBottom: border.base }}>
+      <div className="grid-2-col" style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div style={{ background: "#fff", border: border.thick, borderRadius: 32, boxShadow: shadow.lg, padding: 36, position: "relative" }}>
           <div style={{ position: "absolute", top: -18, left: 28 }}>
             <Sticker color="mint" rotate={-5} size="sm">LOCAL NETWORK</Sticker>
@@ -513,7 +514,7 @@ function CarrierStory({ country }: { country: Country }) {
 function PromiseStrip({ country }: { country: Country }) {
   if (!country.promise_text) return null;
   return (
-    <section style={{ background: C.yellow, padding: "80px 56px", borderBottom: border.base, position: "relative", overflow: "hidden" }}>
+    <section className="section-pad" style={{ background: C.yellow, paddingTop: "80px", paddingBottom: "80px", borderBottom: border.base, position: "relative", overflow: "hidden" }}>
       <div style={{ position: "relative", maxWidth: 1280, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 40, flexWrap: "wrap" }}>
         <div style={{ maxWidth: 720 }}>
           <Mono>// THE PROMISE</Mono>
@@ -532,8 +533,8 @@ function PromiseStrip({ country }: { country: Country }) {
 function QualityPromise({ country }: { country: Country }) {
   if (!country.promise_text) return null;
   return (
-    <section style={{ background: C.coral, padding: "100px 56px", borderBottom: border.base, position: "relative", overflow: "hidden", color: C.ink }}>
-      <div style={{ position: "relative", maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "1.2fr 1fr", gap: 56, alignItems: "center" }}>
+    <section className="section-pad" style={{ background: C.coral, paddingTop: "100px", paddingBottom: "100px", borderBottom: border.base, position: "relative", overflow: "hidden", color: C.ink }}>
+      <div className="grid-2-col" style={{ position: "relative", maxWidth: 1280, margin: "0 auto" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
           <Mono>// THE PROMISE</Mono>
           <h2 style={{ fontFamily: F.display, fontWeight: 800, fontSize: "clamp(40px, 5vw, 80px)", letterSpacing: "-0.04em", lineHeight: 0.9, margin: 0 }}>
@@ -564,8 +565,8 @@ function QualityPromise({ country }: { country: Country }) {
 
 function PhoneNumberStory() {
   return (
-    <section style={{ background: C.cream2, padding: "100px 56px", borderBottom: border.base }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1.05fr", gap: 56, alignItems: "center" }}>
+    <section className="section-pad" style={{ background: C.cream2, paddingTop: "100px", paddingBottom: "100px", borderBottom: border.base }}>
+      <div className="grid-2-col" style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
           <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
             <Sticker color="yellow" rotate={-3}>WHY THIS MATTERS</Sticker>
@@ -617,7 +618,7 @@ function PhoneNumberStory() {
 
 function PlanGrid({ bundles, country }: { bundles: Bundle[]; country: Country }) {
   return (
-    <section id="plans" style={{ background: C.cream, padding: "120px 56px", borderBottom: border.base }}>
+    <section id="plans" className="section-pad" style={{ background: C.cream, paddingTop: "120px", paddingBottom: "120px", borderBottom: border.base }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 40, flexWrap: "wrap", marginBottom: 56 }}>
           <div>
@@ -664,7 +665,7 @@ function PlanGrid({ bundles, country }: { bundles: Bundle[]; country: Country })
 
 function HowNumberWorks() {
   return (
-    <section style={{ background: C.blue, color: C.cream, padding: "100px 56px", borderBottom: border.base, position: "relative", overflow: "hidden" }}>
+    <section className="section-pad" style={{ background: C.blue, color: C.cream, paddingTop: "100px", paddingBottom: "100px", borderBottom: border.base, position: "relative", overflow: "hidden" }}>
       <div aria-hidden style={{ position: "absolute", right: -60, top: -120, fontFamily: F.display, fontWeight: 800, fontSize: 600, lineHeight: 1, color: C.yellow, opacity: 0.16, userSelect: "none", pointerEvents: "none" }}>∞</div>
       <div style={{ position: "relative", maxWidth: 1280, margin: "0 auto" }}>
         <Mono color={C.yellow}>// HOW THE LOCAL NUMBER WORKS</Mono>
@@ -672,7 +673,7 @@ function HowNumberWorks() {
           You get your number{" "}
           <span style={{ fontStyle: "italic", fontWeight: 500, color: C.yellow }}>before</span> you land.
         </h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24 }}>
+        <div className="grid-4-col">
           {[
             { n: "01", t: "Pick a plan", d: "Any duration. All include the local number." },
             { n: "02", t: "We email a QR", d: "Within 30 seconds, with your assigned number written on it." },
@@ -716,7 +717,7 @@ function FAQSection({ country }: { country: Country }) {
   ];
 
   return (
-    <section style={{ background: C.cream, padding: "120px 56px" }}>
+    <section className="section-pad" style={{ background: C.cream, paddingTop: "120px", paddingBottom: "120px" }}>
       <div style={{ maxWidth: 980, margin: "0 auto" }}>
         <Mono>// FAQ</Mono>
         <h2 style={{ fontFamily: F.display, fontWeight: 700, fontSize: "clamp(40px, 5vw, 80px)", letterSpacing: "-0.035em", lineHeight: 0.95, margin: "14px 0 40px" }}>

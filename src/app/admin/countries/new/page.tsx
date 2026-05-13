@@ -64,7 +64,7 @@ export default function NewCountryPage() {
         </div>
       </header>
 
-      <div style={{ maxWidth: 800, margin: "0 auto", padding: "48px 40px" }}>
+      <div style={{ maxWidth: 800, margin: "0 auto", padding: "48px clamp(16px, 4vw, 40px)" }}>
         <div style={{ marginBottom: 36 }}>
           <Mono>// NEW COUNTRY</Mono>
           <h1 style={{ fontFamily: F.display, fontWeight: 800, fontSize: 48, letterSpacing: "-0.035em", lineHeight: 0.9, margin: "10px 0 0" }}>

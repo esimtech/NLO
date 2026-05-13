@@ -289,9 +289,11 @@ export default function WhyUsPage() {
 
       {/* Story 3 — Amsterdam */}
       <section
+        className="section-pad"
         style={{
           background: C.yellow,
-          padding: "120px 56px",
+          paddingTop: "120px",
+          paddingBottom: "120px",
           borderBottom: border.base,
           position: "relative",
           overflow: "hidden",
@@ -316,14 +318,11 @@ export default function WhyUsPage() {
           ∞
         </div>
         <div
+          className="grid-2-col"
           style={{
             position: "relative",
             maxWidth: 1280,
             margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "1.1fr 1fr",
-            gap: 56,
-            alignItems: "center",
           }}
         >
           <div>
@@ -421,14 +420,12 @@ export default function WhyUsPage() {
       </section>
 
       {/* Numbers strip */}
-      <section style={{ background: C.ink, color: C.cream, padding: "80px 56px", borderBottom: border.base }}>
+      <section className="section-pad" style={{ background: C.ink, color: C.cream, paddingTop: "80px", paddingBottom: "80px", borderBottom: border.base }}>
         <div
+          className="grid-4-col"
           style={{
             maxWidth: 1280,
             margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: 28,
           }}
         >
           {[
@@ -448,7 +445,7 @@ export default function WhyUsPage() {
       </section>
 
       {/* Final promise */}
-      <section style={{ background: C.cream, padding: "120px 56px", borderBottom: border.base, position: "relative", overflow: "hidden" }}>
+      <section className="section-pad" style={{ background: C.cream, paddingTop: "120px", paddingBottom: "120px", borderBottom: border.base, position: "relative", overflow: "hidden" }}>
         <div
           aria-hidden
           style={{

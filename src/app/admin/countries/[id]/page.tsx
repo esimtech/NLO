@@ -138,7 +138,7 @@ export default function EditCountryPage() {
         </div>
       </header>
 
-      <div style={{ maxWidth: 900, margin: "0 auto", padding: "48px 40px" }}>
+      <div style={{ maxWidth: 900, margin: "0 auto", padding: "48px clamp(16px, 4vw, 40px)" }}>
         {/* Header */}
         <div style={{ display: "flex", alignItems: "center", gap: 20, marginBottom: 36 }}>
           <span style={{ fontSize: 48 }}>{country.flag}</span>

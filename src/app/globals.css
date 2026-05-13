@@ -90,7 +90,7 @@ button { font-family: inherit; }
   -webkit-overflow-scrolling: touch;
 }
 
-/* Section padding: desktop 56px sides → mobile 24px sides */
+/* Section padding: desktop 56px sides → mobile 20px sides */
 .section-pad {
   padding-left: 56px;
   padding-right: 56px;
@@ -99,5 +99,20 @@ button { font-family: inherit; }
   .section-pad {
     padding-left: 20px;
     padding-right: 20px;
+  }
+}
+
+/* Admin header padding: shrink on mobile */
+@media (max-width: 767px) {
+  header.admin-header {
+    padding: 14px 16px !important;
+  }
+}
+
+/* Timeline rows: allow text wrap on mobile */
+@media (max-width: 767px) {
+  .timeline-row {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
   }
 }

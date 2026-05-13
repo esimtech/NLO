@@ -12,7 +12,7 @@ export default function SupportPage() {
       <Nav />
 
       {/* Hero */}
-      <section style={{ background: C.cream, padding: "80px 56px", borderBottom: border.base, position: "relative", overflow: "hidden" }}>
+      <section className="section-pad" style={{ background: C.cream, paddingTop: "80px", paddingBottom: "80px", borderBottom: border.base, position: "relative", overflow: "hidden" }}>
         <div aria-hidden style={{ position: "absolute", right: -140, top: -100, fontFamily: F.display, fontWeight: 800, fontSize: 880, lineHeight: 1, color: C.mint, opacity: 0.22, pointerEvents: "none", userSelect: "none" }}>∞</div>
         <div style={{ position: "relative", maxWidth: 1280, margin: "0 auto", display: "flex", flexDirection: "column", gap: 24 }}>
           <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
@@ -30,7 +30,7 @@ export default function SupportPage() {
       </section>
 
       {/* Channels */}
-      <section style={{ background: C.cream2, padding: "120px 56px", borderBottom: border.base }}>
+      <section className="section-pad" style={{ background: C.cream2, paddingTop: "120px", paddingBottom: "120px", borderBottom: border.base }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 40, flexWrap: "wrap", marginBottom: 40 }}>
             <div>
@@ -43,7 +43,7 @@ export default function SupportPage() {
             <Sticker color="coral" rotate={4} size="lg">NO BOTS. NO QUEUES.</Sticker>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 28 }}>
+          <div className="grid-3-col">
             <ChannelCard
               color={C.mint}
               name="WhatsApp"
@@ -76,8 +76,8 @@ export default function SupportPage() {
       </section>
 
       {/* Team */}
-      <section style={{ background: C.cream, padding: "100px 56px", borderBottom: border.base }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, alignItems: "center" }}>
+      <section className="section-pad" style={{ background: C.cream, paddingTop: "100px", paddingBottom: "100px", borderBottom: border.base }}>
+        <div className="grid-2-col" style={{ maxWidth: 1280, margin: "0 auto" }}>
           <div>
             <Mono>// THE HUMANS</Mono>
             <h2 style={{ fontFamily: F.display, fontWeight: 800, fontSize: "clamp(40px, 4.5vw, 72px)", letterSpacing: "-0.04em", lineHeight: 0.9, margin: "14px 0 18px" }}>
@@ -90,7 +90,7 @@ export default function SupportPage() {
               24/7 without robots. Everyone on the team has shipped an eSIM and travelled with it.
             </p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 18 }}>
+          <div className="grid-3-col" style={{ gap: 18 }}>
             {[
               { name: "Mira", city: "Amsterdam · NL", shift: "EU mornings · afternoons", flag: "🇳🇱" },
               { name: "Tomás", city: "Lisbon · PT", shift: "EU evenings", flag: "🇵🇹" },
@@ -168,7 +168,7 @@ function FAQSection() {
   const filtered = filter === "All" ? items : items.filter((i) => i.cat === filter);
 
   return (
-    <section style={{ background: C.cream, padding: "120px 56px", borderBottom: border.base }}>
+    <section className="section-pad" style={{ background: C.cream, paddingTop: "120px", paddingBottom: "120px", borderBottom: border.base }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <Mono>// SELF-SERVE FIRST</Mono>
         <h2 style={{ fontFamily: F.display, fontWeight: 700, fontSize: "clamp(40px, 5vw, 80px)", letterSpacing: "-0.035em", lineHeight: 0.95, margin: "14px 0 28px" }}>
